@@ -188,7 +188,7 @@ class _EditTaskPageState extends State<EditTaskPage> {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(CupertinoIcons.add_circled),
+                    Icon(LucideIcons.bell),
                     SizedBox(height: 4),
                     Text("Reminder"),
                   ],

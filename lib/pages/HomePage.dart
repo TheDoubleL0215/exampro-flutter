@@ -103,20 +103,19 @@ class _HomePageState extends State<HomePage> {
   }
 
   String _formatDate(String date) {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    final yesterday = DateTime(now.year, now.month, now.day - 1);
+    final tomorrow = DateTime(now.year, now.month, now.day + 1);
+
+    if (DateTime.parse(date) == today) {
+      return 'Today';
+    } else if (DateTime.parse(date) == yesterday) {
+      return 'Yesterday';
+    } else if (DateTime.parse(date) == tomorrow) {
+      return 'Tomorrow';
+    }
     final parsedDate = DateTime.parse(date.replaceAll('.', '-'));
     return DateFormat('MMMM d').format(parsedDate);
-  }
-
-  String _formatTileTitle(String type, String examType) {
-    switch (type) {
-      case 'homework':
-        return "${type[0].toUpperCase()}${type.substring(1).toLowerCase()}";
-      case 'exam':
-        return "${type[0].toUpperCase()}${type.substring(1).toLowerCase()} - ${examType[0].toUpperCase()}${examType.substring(1).toLowerCase()}";
-      case 'reminder':
-        return 'Reminders';
-      default:
-        return type;
-    }
   }
 }
